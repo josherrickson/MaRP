@@ -1,5 +1,9 @@
 # What R command should we run?
-RCMD=R -q -e
+RCMD := R -q -e
+
+# Which fields in Description should be considered as "dependencies"?
+DEP_FIELDS := c("Depends", "Imports")
+# This should return a valid R vector
 
 # Get package information
 PKGNAME := $(shell sed -n "s/Package: *\([^ ]*\)/\1/p" DESCRIPTION)
