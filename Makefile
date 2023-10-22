@@ -50,6 +50,10 @@ build-cran:
 test:
 	@$(RCMD) "tinytest::build_install_test('.')"
 
+# .PHONY:test
+# test:
+# 	@$(RCMD) "testthat::test_package('.')"
+
 .PHONY:install
 install: build
 	cd ..;\
