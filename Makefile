@@ -1,10 +1,10 @@
-# prepare the package for release
+# What R command should we run?
+RCMD=R -q -e
+
+# Get package information
 PKGNAME := $(shell sed -n "s/Package: *\([^ ]*\)/\1/p" DESCRIPTION)
 PKGVERS := $(shell sed -n "s/Version: *\([^ ]*\)/\1/p" DESCRIPTION)
 PKGSRC  := $(shell basename `pwd`)
-
-# What R command should we run?
-RCMD=R -q -e
 
 .PHONY:all
 all: check clean
