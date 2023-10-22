@@ -18,7 +18,7 @@ deps:
 	@Rscript -e\
    'depstring <- packageDescription(pkg = ".",\
 																		lib.loc = ".",\
-																		fields = c("Depends", "Imports"));\
+																		fields =$(DEP_FIELDS));\
 		depstring <- Reduce(paste, Filter(\(x) !is.na(x), depstring));\
 		if (!is.null(depstring)) {\
 			deps <- gsub("^R \\\(>= [0-9.]+\\\)", "", depstring);\
