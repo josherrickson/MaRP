@@ -48,3 +48,11 @@ There are also several optional rules that can be enabled by uncommenting:
   package to the [win-builder](https://win-builder.r-project.org) for checking.
   Useful specifically for testing on the previous version or the development
   version of R without installing multiple versions of R locally.
+
+### Usage
+
+Copy `Makefile` into the main directory for your package (the one where
+DESCRIPTION lives). No modification of the file is required for simple packages.
+
+Rules can be exectued by calling `make` followed by the rule. For example, to
+build documentation, call `make document` from the main package directory.
