@@ -6,10 +6,10 @@ PKGNAME := $(shell sed -n "s/Package: *\([^ ]*\)/\1/p" DESCRIPTION)
 PKGVERS := $(shell sed -n "s/Version: *\([^ ]*\)/\1/p" DESCRIPTION)
 PKGSRC  := $(shell basename `pwd`)
 
-.PHONY:all
+.PHONY: all
 all: check clean
 
-.PHONY:deps
+.PHONY: deps
 deps:
 	@Rscript -e\
    'depstring <- packageDescription(pkg = ".",\
@@ -32,64 +32,64 @@ deps:
 			cat("No dependencies\n")\
 		}'
 
-.PHONY:document
+.PHONY: document
 document:
 	@$(RCMD) "roxygen2::roxygenize()"
 
-.PHONY:build
+.PHONY: build
 build:
 	cd ..;\
 	R CMD build --no-manual $(PKGSRC)
 
-.PHONY:build-cran
+.PHONY: build-cran
 build-cran:
 	cd ..;\
 	R CMD build $(PKGSRC)
 
-.PHONY:test
+.PHONY: test
 test:
 	@$(RCMD) "tinytest::build_install_test('.')"
 
-# .PHONY:test
+# .PHONY: test
 # test:
 # 	@$(RCMD) "testthat::test_package('.')"
 
-.PHONY:install
+.PHONY: install
 install: build
 	cd ..;\
 	R CMD INSTALL $(PKGNAME)_$(PKGVERS).tar.gz
 
-.PHONY:build-cran
+.PHONY: build-cran
 check: build-cran
 	cd ..;\
 	R CMD check $(PKGNAME)_$(PKGVERS).tar.gz --as-cran
 
-.PHONY:vignettes
+.PHONY: vignettes
 vignettes:
 	@echo NYI
 
 ### Uncomment to enable these features
-# .PHONY:coverage
+# .PHONY: coverage
 # coverage:
 # 	@$(RCMD) "covr::report(file = 'coverage.html', browse = TRUE)"
 
-# .PHONY:goodpractice
+# .PHONY: goodpractice
 # goodpractice:
 # 	@$(RCMD) "goodpractice::gp('.')"
 
-# .PHONY:check_win_old
+# .PHONY: check_win_old
 # check_win_old:        # Check & build on win-builder old release
 # 	@echo NYI
 
-# .PHONY:check_win
+# .PHONY: check_win
 # check_win:            # ... on win-builder release
 # 	@echo NYI
 
-# .PHONY:check_win_dev
+# .PHONY: check_win_dev
 # check_win_dev:        # ... on win-builder dev
 # 	@echo NYI
 
-.PHONY:clean
+.PHONY: clean
 clean:
 	cd ..;\
 	$(RM) -r $(PKGNAME).Rcheck/
