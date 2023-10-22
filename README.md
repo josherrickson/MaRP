@@ -1,10 +1,8 @@
 ## MaRP
 
 MaRP is a **Ma**kefile for **R** **P**ackage development with a focus on
-minimizing dependencies. It is an alternative to using the
-[**devtools**](https://devtools.r-lib.org/) to avoid the massive amount of
-package dependence that it brings. If you have an especially complex package,
-**devtools** may suit you better.
+minimalism and reducing dependencies. If you have an especially complex package,
+[other tools](#comparison-to-similar-tools) may be better.
 
 While MaRP is designed to work out of the box, but is really supposed to just be
 a starting point for a package's development. It has a number of Makefile rules
@@ -56,3 +54,13 @@ DESCRIPTION lives). No modification of the file is required for simple packages.
 
 Rules can be exectued by calling `make` followed by the rule. For example, to
 build documentation, call `make document` from the main package directory.
+
+### Comparison to similar tools
+
+[**devtools**](https://devtools.r-lib.org/) is an R package. It introduces a
+tremendous amonut of dependency:
+[![status](https://tinyverse.netlify.com/badge/devtools)](https://CRAN.R-project.org/package=devtools).
+
+[maker](https://github.com/ComputationalProteomicsUnit/maker) is a
+Makefile-based approach but much heavier. For more advanced package usage, this
+is a better option than MaRP.
