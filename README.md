@@ -58,7 +58,8 @@ build documentation, call `make document` from the main package directory.
 ### Comparison to similar tools
 
 [**devtools**](https://devtools.r-lib.org/) is an R package. It introduces a
-tremendous amonut of dependency:
+tremendous amonut of
+[dependencies](https://cran.r-project.org/web/packages/pacs/vignettes/tinyverse.html):
 [![status](https://tinyverse.netlify.com/badge/devtools)](https://CRAN.R-project.org/package=devtools).
 
 [maker](https://github.com/ComputationalProteomicsUnit/maker) is a
