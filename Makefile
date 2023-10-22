@@ -1,5 +1,5 @@
 ###################################################
-#################### MaRP v0.1 ####################
+#################### MaRP v0.2 ####################
 ###################################################
 
 # What R command should we run?
@@ -56,11 +56,12 @@ build-cran:
 
 .PHONY: test
 test:
+ifneq (,$(wildcard tests/tinytest.R))
 	@$(RCMD) "tinytest::build_install_test('.')"
-
-# .PHONY: test
-# test:
-# 	@$(RCMD) "testthat::test_package('.')"
+endif
+ifneq (,$(wildcard tests/testthat.R))
+	@$(RCMD) "testthat::test_package('.')"
+endif
 
 .PHONY: install
 install: build

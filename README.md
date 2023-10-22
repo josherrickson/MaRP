@@ -26,9 +26,9 @@ The following Make rules are supported:
 - `build-cran`: Build the package including the manual. The manual is needed for
   full checking and submission to CRAN.
 - `test`: Run [**tinytest**](https://github.com/markvanderloo/tinytest) or
-  [**testthat**](https://testthat.r-lib.org) (uncomment out whichever version
-  you use) to carry out your package unit tests. The default is **tinytest**
-  which has no dependencies.
+  [**testthat**](https://testthat.r-lib.org) depending on which your package
+  uses. (Technically it will run both if you have both for some reason.) I
+  recommend **tinytest** due to its lack of dependencies.
 - `install`: Build (if necessary) and install the package locally.
 - `check`: Build (if necessary) and perform a CRAN check on the package. Note
   that unlike `make all`, this does not clean up artifacts.
