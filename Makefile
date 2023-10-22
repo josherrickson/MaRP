@@ -79,6 +79,11 @@ check: build-cran
 vignettes:
 	@echo NYI
 
+.PHONY: clean
+clean:
+	cd ..;\
+	$(RM) -r $(PKGNAME).Rcheck/
+
 ### Uncomment to enable these features
 # .PHONY: coverage
 # coverage:
@@ -99,8 +104,3 @@ vignettes:
 # .PHONY: check_win_dev
 # check_win_dev:        # ... on win-builder dev
 # 	@echo NYI
-
-.PHONY: clean
-clean:
-	cd ..;\
-	$(RM) -r $(PKGNAME).Rcheck/
