@@ -6,8 +6,10 @@ PKGSRC  := $(shell basename `pwd`)
 # What R command should we run?
 RCMD=R -q -e
 
+.PHONY:all
 all: check clean
 
+.PHONY:deps
 deps:
 	@Rscript -e\
    'depstring <- packageDescription(pkg = ".",\
@@ -30,28 +32,35 @@ deps:
 			cat("No dependencies\n")\
 		}'
 
+.PHONY:document
 document:
 	@$(RCMD) "roxygen2::roxygenize()"
 
+.PHONY:build
 build:
 	cd ..;\
 	R CMD build --no-manual $(PKGSRC)
 
+.PHONY:build-cran
 build-cran:
 	cd ..;\
 	R CMD build $(PKGSRC)
 
+.PHONY:test
 test:
 	@$(RCMD) "tinytest::build_install_test('.')"
 
+.PHONY:install
 install: build
 	cd ..;\
 	R CMD INSTALL $(PKGNAME)_$(PKGVERS).tar.gz
 
+.PHONY:build-cran
 check: build-cran
 	cd ..;\
 	R CMD check $(PKGNAME)_$(PKGVERS).tar.gz --as-cran
 
+.PHONY:vignettes
 vignettes:
 	@echo NYI
 
