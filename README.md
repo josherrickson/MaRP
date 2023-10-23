@@ -33,8 +33,7 @@ The following Make rules are supported:
 - `check`: Build (if necessary) and perform a CRAN check on the package. Note
   that unlike `make all`, this does not clean up artifacts.
 - `vignettes`: NYI, will eventually build just the vignettes.
-- `clean`: NYI, will eventually remove artifacts from the checking/building
-  process.
+- `clean`: Remove artifacts from the checking/building process.
 
 There are also several optional rules that can be enabled by uncommenting:
 

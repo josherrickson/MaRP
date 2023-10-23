@@ -1,5 +1,5 @@
 ###################################################
-#################### MaRP v0.2 ####################
+#################### MaRP v0.3 ####################
 ###################################################
 
 # What R command should we run?
@@ -80,7 +80,7 @@ vignettes:
 .PHONY: clean
 clean:
 	cd ..;\
-	$(RM) -r $(PKGNAME).Rcheck/
+	$(RM) -r $(PKGNAME).Rcheck/ $(PKGNAME)_$(PKGVERS).tar.gz
 
 ### Uncomment to enable these features
 # .PHONY: coverage

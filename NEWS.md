@@ -1,3 +1,7 @@
+## MaRP 0.3
+
+- `make clean` implemented
+
 ## MaRP 0.2
 
 - `make test` now runs either **tinytest** or **testthat** depending on which
